@@ -1,0 +1,26 @@
+.title {
+  &__excerpt {
+    font-size: 0.7em;
+  }
+
+  &--light {
+    .title__excerpt {
+      font-size: 1.2em;
+      font-family: var(--font-main-bold);
+    }
+  }
+
+  &--light-responsive {
+    .title__excerpt {
+      font-size: 1em;
+      font-family: var(--font-main-bold);
+    }
+  }
+
+  &--light-massive {
+    .title__excerpt {
+      font-size: 1.4em;
+      font-family: var(--font-main-bold);
+    }
+  }
+}

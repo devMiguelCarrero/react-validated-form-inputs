@@ -1,0 +1,122 @@
+@import '@/shared/common/variables/colors.scss';
+@import '@/shared/common/variables/sizes.scss';
+@import '@/shared/common/variables/typography.scss';
+
+$border-radius: 78px;
+$responsive-gap: 5rem;
+$col-padding: 4rem;
+$main-background: var(--secondary-1000);
+$main-color: $text-color;
+$secondary-background: var(--gradient-purple-vertical);
+
+.contact-area {
+  position: relative;
+  border-radius: $border-radius;
+  min-height: 200px;
+  background-color: $main-background;
+  display: flex;
+  flex-direction: row;
+
+  @media (max-width: 991px) {
+    flex-direction: column;
+    border-radius: 0;
+    background-color: transparent;
+  }
+
+  &__col {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    &--dialog {
+      color: $main-background;
+      border-radius: 0 #{$border-radius} #{$border-radius} 0;
+      background: $secondary-background;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      @media (max-width: 991px) {
+        margin-left: -25px;
+        margin-right: -25px;
+        border-radius: 0;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        padding-bottom: calc(#{$col-padding} + #{$responsive-gap});
+      }
+    }
+    &--form {
+      @media (max-width: 991px) {
+        border-radius: 20px;
+        background-color: $main-background;
+        padding: 2rem;
+        z-index: 5;
+        margin-top: -#{$responsive-gap};
+      }
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 15;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    animation: fade 0.4s ease-in-out;
+    animation-iteration-count: 1;
+    display: flex;
+    flex-direction: column;
+    padding: $col-padding;
+    align-items: center;
+    justify-content: center;
+    color: $main-background;
+    border-radius: $border-radius;
+
+    @media (max-width: 991px) {
+      margin-left: -25px;
+      margin-right: -25px;
+      border-radius: 0;
+      width: calc(100% + (25px * 2));
+    }
+  }
+
+  &__submitted {
+    padding: $col-padding;
+    border-radius: $border-radius;
+    background-color: $main-background;
+    color: $main-color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fade 0.4s ease-in-out;
+    animation-iteration-count: 1;
+    .submitted-image {
+      width: 100%;
+      max-width: 250px;
+    }
+    .submitted-link {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.general-form {
+  display: flex;
+  flex-direction: column;
+}

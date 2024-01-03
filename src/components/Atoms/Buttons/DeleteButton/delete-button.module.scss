@@ -1,0 +1,56 @@
+@import '@/shared/common/variables/colors.scss';
+@import '@/shared/common/variables/sizes.scss';
+@import '@/shared/common/variables/typography.scss';
+
+$button-dimension: 20px;
+$button-icon-stroke: 2px;
+$button-icon-size-gap: 6px;
+.delete-button {
+  position: relative;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  height: $size-xs;
+  width: $size-xs;
+  border: solid 2px #{$color-flamingo};
+  background-color: $color-flamingo;
+  border-radius: 50%;
+  cursor: pointer;
+  outline: none;
+  margin: 0;
+
+  &::before,
+  &::after {
+    content: '';
+    background-color: $text-color;
+    width: calc(100% - (#{$button-icon-size-gap}));
+    height: $button-icon-stroke;
+    position: absolute;
+    top: calc(50% - (#{$button-icon-stroke} / 2));
+    left: calc(0% + (#{$button-icon-size-gap} / 2));
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out,
+      transform 0.2s ease-in-out;
+  }
+
+  &:hover {
+    outline: none;
+    background-color: transparent;
+    color: $color-flamingo;
+    &::before,
+    &::after {
+      background-color: $color-flamingo;
+    }
+    &::before {
+      transform: rotate(45deg);
+    }
+    &::after {
+      transform: rotate(135deg);
+    }
+  }
+  @media (max-width: 991px) {
+    &::before {
+      transform: rotate(45deg);
+    }
+    &::after {
+      transform: rotate(135deg);
+    }
+  }
+}

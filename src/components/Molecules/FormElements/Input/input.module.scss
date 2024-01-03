@@ -1,0 +1,223 @@
+@import '@/shared/common/variables/colors.scss';
+@import '@/shared/common/variables/sizes.scss';
+@import '@/shared/common/variables/typography.scss';
+
+$input-padding: $size-xxs;
+
+.form-control {
+  margin: 1rem 0 2rem 0;
+  @include input-size;
+  text-align: left;
+
+  //Change chrome autocomplete styles
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #{$main} inset !important;
+  }
+
+  input:-webkit-autofill {
+    -webkit-text-fill-color: #{$text-color} !important;
+  }
+
+  &__error-text,
+  &__warning-text {
+    display: block;
+    color: $color-flamingo;
+    margin-top: 0.3rem;
+    @include warning-size;
+    &:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  &__error-text {
+    line-height: 1.5;
+    color: $color-flamingo;
+  }
+
+  &__warning-text {
+    line-height: 1.5;
+    color: $color-casablanca;
+  }
+
+  &__radio-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+  label.form-control__radio {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 0;
+    cursor: pointer;
+    margin-top: $size-xxs;
+
+    &:not(:last-child) {
+      margin-right: 1.2rem;
+    }
+
+    .form-control__radio__input {
+      display: none;
+    }
+
+    $square-dimension: 20px;
+    $square-padding: 2px;
+    $square-color: $text-color;
+    .form-control__radio__complement {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      flex-wrap: nowrap;
+      .radio-square {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid $square-color;
+        border-radius: 3px;
+        background-color: transparent;
+        width: $square-dimension;
+        height: $square-dimension;
+        padding: $square-padding;
+        &::before {
+          content: '';
+          display: block;
+          width: 0%;
+          height: 0%;
+          opacity: 0;
+          border-radius: 3px;
+          background-color: $square-color;
+          transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+        }
+      }
+      .radio-text {
+        color: var(--wk-primary-100);
+        margin-left: 10px;
+      }
+    }
+
+    .form-control__radio__input:checked {
+      & + .form-control__radio__complement {
+        .radio-square {
+          &::before {
+            opacity: 1;
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+.form-control label,
+.form-control input,
+.form-control select,
+.form-control textarea {
+  display: block;
+  color: $text-color;
+}
+
+.form-control label {
+  font-weight: bold;
+  @include label-size;
+  margin-bottom: 0.6rem;
+  font-weight: 300;
+  color: $text-color;
+}
+
+.form-control input,
+.form-control select,
+.form-control textarea {
+  width: 100%;
+  @include input-size;
+  background-color: transparent;
+  padding: $input-padding;
+  border-radius: 5px;
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: $text-color;
+  }
+}
+
+.form-control select {
+  position: relative;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48' width='48'%3E%3Cpath d='m24 30.8-12-12 2.15-2.15L24 26.5l9.85-9.85L36 18.8Z' fill='%23FFFFFF'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: calc(100% - #{$input-padding}) center;
+  background-size: 2rem;
+  cursor: pointer;
+
+  option {
+    background-color: $main;
+  }
+}
+
+.form-control input:focus,
+.form-control textarea:focus {
+  outline: none;
+}
+
+.form-control--invalid > label {
+  color: var(--wk-error-100);
+}
+
+.form-control--invalid input,
+.form-control--invalid textarea,
+.form-control--invalid select {
+  border: solid 1px var(--wk-error-100);
+}
+
+.form-control--light {
+  position: relative;
+  select,
+  number,
+  date,
+  input,
+  textarea {
+    position: relative;
+    background-color: transparent;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: solid 1px #{$text-color};
+    padding: 0.5rem 0;
+    font-size: 1.3rem;
+    z-index: 10;
+
+    &:focus {
+      background-color: transparent;
+    }
+  }
+
+  &.filled,
+  &.focused {
+    label {
+      transform: translate(0, 0) scale(1);
+      color: $light-blue;
+    }
+  }
+
+  label {
+    display: table;
+    color: $color-sat-400;
+    transform: translate(0, 1.9rem) scale(1.4);
+    transition: transform 0.3s ease-in-out;
+    transform-origin: left;
+    margin: 0;
+    z-index: 5;
+  }
+}

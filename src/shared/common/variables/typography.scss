@@ -1,0 +1,64 @@
+$main-font: Helvetica, Arial, sans-serif;
+
+@mixin label-size {
+  font-family: $main-font;
+  font-size: 14px;
+  line-height: 0.8;
+  font-weight: 200;
+  letter-spacing: 0;
+
+  &:not([class]):not(:last-child):not(:only-child) {
+    margin-bottom: 4px;
+  }
+  @media (max-width: 992px) {
+    font-size: 2px;
+  }
+}
+
+@mixin warning-size {
+  font-family: $main-font;
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: 0;
+
+  &:not([class]):not(:last-child):not(:only-child) {
+    margin-bottom: 4px;
+  }
+  @media (max-width: 992px) {
+    font-size: 10px;
+  }
+}
+
+@mixin input-size {
+  font-family: $main-font;
+  font-size: 20px;
+  line-height: 1.3;
+  font-weight: 200;
+  letter-spacing: 0;
+  outline: none;
+
+  &:not([class]):not(:last-child):not(:only-child) {
+    margin-bottom: 4px;
+  }
+  @media (max-width: 992px) {
+    font-size: 18px;
+  }
+}
+
+@mixin button-size {
+  font-family: $main-font;
+  font-size: 20px;
+  line-height: 1.3;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+
+  &:not([class]):not(:last-child):not(:only-child) {
+    margin-bottom: 4px;
+  }
+  @media (max-width: 992px) {
+    font-size: 20px;
+  }
+}
