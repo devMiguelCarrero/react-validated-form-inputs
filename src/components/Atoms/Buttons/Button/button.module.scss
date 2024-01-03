@@ -1,0 +1,94 @@
+@import '@/shared/common/variables/colors.scss';
+@import '@/shared/common/variables/sizes.scss';
+@import '@/shared/common/variables/typography.scss';
+
+$border-radius: 13px;
+$border-width: 2px;
+$border-width-light: 1px;
+
+.button {
+  display: table;
+  position: relative;
+  color: var(--secondary-1000);
+  background: transparent;
+  padding: 10px 25px;
+  text-decoration: none;
+  border: solid #{$border-width} #{$light-blue};
+  transition: border 0.2s ease-in-out, background-color 0.2s ease-in-out,
+    color 0.2s ease-in-out;
+  cursor: pointer;
+  font-size: 1.7rem;
+  margin-left: auto;
+  margin-right: auto;
+  color: $light-blue;
+  @include button-size;
+
+  @media (max-width: 767px) {
+    font-size: 1.1rem;
+    padding: 10px 20px;
+  }
+
+  &__text {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    z-index: 5;
+  }
+
+  &:hover {
+    &:not(:disabled) {
+      color: $main;
+      background-color: $light-blue;
+      &::before {
+        opacity: 0;
+      }
+    }
+  }
+
+  &:disabled {
+    cursor: auto;
+    opacity: 0.5;
+  }
+
+  &--light {
+    border: solid #{$border-width-light} var(--secondary-250);
+    color: #5d2fa3;
+    line-height: 0.8;
+    border-radius: 10px;
+    padding: 10px 30px;
+    &::before {
+      opacity: 0;
+    }
+
+    @media (max-width: 767px) {
+      padding: 10px 20px;
+    }
+
+    &:hover {
+      &:not(:disabled) {
+        border: solid #{$border-width-light} transparent;
+        color: #fff;
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &--white {
+    border: solid #{$border-width} var(--secondary-1000);
+    background-color: var(--secondary-1000);
+    color: #5d2fa3;
+    &::before {
+      content: none;
+    }
+
+    &:hover {
+      &:not(:disabled) {
+        border: solid #{$border-width} var(--secondary-1000);
+        background-color: transparent;
+        color: var(--secondary-1000);
+      }
+    }
+  }
+}

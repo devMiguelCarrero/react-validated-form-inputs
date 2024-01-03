@@ -1,0 +1,12 @@
+@import '@/shared/common/variables/colors.scss';
+@import '@/shared/common/variables/sizes.scss';
+
+.validated-form {
+  //background-color: #0C121C;
+  background-color: $main;
+  color: $text-color;
+  padding: $size-l;
+  border-radius: $radius-standard;
+  width: 600px;
+  max-width: 100%;
+}

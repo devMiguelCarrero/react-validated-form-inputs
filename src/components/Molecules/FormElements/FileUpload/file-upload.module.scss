@@ -1,0 +1,121 @@
+@import '@/shared/common/variables/colors.scss';
+@import '@/shared/common/variables/sizes.scss';
+
+$input-padding: 1rem;
+$background-color: var(--secondary-500);
+$item-font: var(--font-main-medium);
+
+.file-upload {
+  position: relative;
+
+  &__dropper-container {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: $size-xs;
+  }
+
+  &__dropper {
+    width: 100%;
+    font: inherit;
+    border: solid 1px #{$light-blue};
+    background-color: transparent;
+    padding: $input-padding;
+    border-radius: 5px;
+    font-weight: 300;
+    outline: none;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    width: 60%;
+
+    &:hover,
+    &.is-drag-active {
+      transform: scale(1.05, 1.05);
+      opacity: 0.6;
+    }
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='17.713' height='17.71' viewBox='0 0 17.713 17.71'%3E%3Cdefs%3E%3ClinearGradient id='linear-gradient' x1='0.5' y1='-0.122' x2='0.515' y2='1.228' gradientUnits='objectBoundingBox'%3E%3Cstop offset='0' stop-color='%23b43bff'/%3E%3Cstop offset='0.3' stop-color='%238828c5'/%3E%3Cstop offset='1' stop-color='%233f0964'/%3E%3C/linearGradient%3E%3CclipPath id='clip-path'%3E%3Cpath id='Trazado_132' data-name='Trazado 132' d='M297.915 5626.33l-5.834 5.935a.429.429 0 0 0 .308.73h2.681v7.106a.433.433 0 0 0 .433.433h5.443a.431.431 0 0 0 .43-.433V5633h2.681a.428.428 0 0 0 .308-.73l-5.834-5.935a.434.434 0 0 0-.613 0' transform='translate(-291.957 -5626.203)' stroke='rgba(0 0 0 0)' stroke-width='1' fill='%23FFFFFF'/%3E%3C/clipPath%3E%3CclipPath id='clip-path-2'%3E%3Cpath id='Trazado_133' data-name='Trazado 133' d='M307.033 5633.543a.427.427 0 0 0-.426.428v1.942a1.168 1.168 0 0 1-1.167 1.167H293.175a1.168 1.168 0 0 1-1.167-1.167v-1.942a.429.429 0 0 0-.43-.428h-.7a.428.428 0 0 0-.43.428v1.942a2.724 2.724 0 0 0 2.726 2.725H305.44a2.722 2.722 0 0 0 2.722-2.725v-1.942a.428.428 0 0 0-.428-.428Z' transform='translate(-290.449 -5633.543)' stroke='rgba(0 0 0 0)' stroke-width='1' fill='%23FFFFFF'/%3E%3C/clipPath%3E%3C/defs%3E%3Cg id='Grupo_294' data-name='Grupo 294' transform='translate(0 0)'%3E%3Cg id='Grupo_195' data-name='Grupo 195' transform='translate(2.591)'%3E%3Cg id='Grupo_194' data-name='Grupo 194' clip-path='url(%23clip-path)'%3E%3Crect id='Rect%C3%A1ngulo_117' data-name='Rect%C3%A1ngulo 117' width='12.82' height='14.332' transform='translate(-0.144)' stroke='rgba(0 0 0 0)' stroke-width='1' fill='%23FFFFFF'/%3E%3C/g%3E%3C/g%3E%3Cg id='Grupo_197' data-name='Grupo 197' transform='translate(0 12.615)'%3E%3Cg id='Grupo_196' data-name='Grupo 196' clip-path='url(%23clip-path-2)'%3E%3Crect id='Rect%C3%A1ngulo_118' data-name='Rect%C3%A1ngulo 118' width='17.713' height='5.097' stroke='rgba(0 0 0 0)' stroke-width='1' fill='%23FFFFFF'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: calc(100% - #{$input-padding}) center;
+    background-size: 1.5rem;
+
+    @media (max-width: 767px) {
+      width: 70%;
+    }
+  }
+
+  &__info {
+    margin-left: 10px;
+    margin-bottom: 0;
+    margin-top: 0;
+    width: 40%;
+    font-family: $item-font;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    @media (max-width: 767px) {
+      font-size: 0.6rem;
+      width: 30%;
+    }
+  }
+
+  &__text {
+    font-family: $item-font;
+    margin: 0;
+    text-align: left;
+  }
+
+  &__dropped {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    border-radius: 5px;
+    min-height: 60px;
+    border: solid 1px #{$light-blue};
+    padding: 10px #{$input-padding};
+    overflow: hidden;
+    margin-top: $size-xs;
+
+    &__delete {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;
+      visibility: hidden;
+      @media (max-width: 991px) {
+        visibility: visible;
+      }
+    }
+
+    &__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;
+    }
+
+    &__text {
+      max-width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    &:hover {
+      .file-upload__dropped__delete {
+        visibility: visible;
+      }
+    }
+  }
+
+  label {
+    color: $light-blue;
+  }
+}

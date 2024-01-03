@@ -1,0 +1,21 @@
+// Volumes
+$size-xxxxxs: 2px;
+$size-xxxxs: 4px;
+$size-xxxs: 8px;
+$size-xxs: 16px;
+$size-xs: 20px;
+$size-s: 24px;
+$size-m: 32px;
+$size-l: 48px;
+$size-xl: 64px;
+$size-xxl: 96px;
+$size-xxxl: 128px;
+$size-xxxxl: 192px;
+
+// Shadows
+$shadow-standard: 0px 4px 10px rgba(0, 0, 0, 0.06);
+$shadow-medium: 2px 6px 16px rgba(0, 0, 0, 0.1);
+
+// Border Radius
+$radius-standard: $size-xxxxs;
+$radius-small: #{$size-xxxxs / 2};
