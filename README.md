@@ -1,5 +1,21 @@
+# React Validated Form Inputs
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Description
+
+This is a fully validated form inputs made with React and Typescript used as form boilerplate. You can use it in your project or start a new [Next.js](https://nextjs.org/) project with this one, modify the sass variables, add new ones or update the form validators.
+
+The existing validated **input fields** on this repository are:
+- Text
+- Number
+- email
+- Select
+- Radio
+- Textarea
+- File Uploader
+
+I suggest to check the form validators located in **@/shared/util/validators.ts**. You can add more validator consts to this file if you need to for your project.
 ## Getting Started
 
 First, run the development server:
