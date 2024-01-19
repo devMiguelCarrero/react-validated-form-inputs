@@ -1,6 +1,30 @@
 {
   "name": "react-validated-form-inputs",
   "version": "1.0.0",
+  "description": "This is a fully validated form inputs made with React and Typescript used as form boilerplate",
+  "author": "devMiguelCarrero",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devMiguelCarrero/react-validated-form-inputs"
+  },
+  "funding": {
+    "type": "individual",
+    "url": "https://www.paypal.com/donate/?hosted_button_id=RKK3G3FWEAMLU"
+  },
+  "keywords": [
+    "react",
+    "form",
+    "validated",
+    "inputs",
+    "typescript",
+    "axios",
+    "next.js",
+    "styled-components",
+    "react-dropzone",
+    "twin.macro",
+    "validation",
+    "form-validation"
+  ],
   "private": true,
   "scripts": {
     "dev": "next dev",
